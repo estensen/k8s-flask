@@ -2,7 +2,7 @@
 
 ## Install and run
 ```
-poetry install
-FLASK_APP=hello.py flask run
+docker build . -t k8s-flask
+docker run -p 5000:5000 k8s-flask
 ```
 
