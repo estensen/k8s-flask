@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-flask-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-flask-pod
+  template:
+    metadata:
+      labels:
+        app: k8s-flask-pod
+    spec:
+      containers:
+        - name: k8s-flask-container
+          image: estensen/k8s-flask
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: k8s-flask-pod
+spec:
+  selector:
+    app: k8s-flask-pod
+  ports:
+  - protocol: TCP
+    port: 5000
+    nodePort: 31234
+  type: NodePort
+
