@@ -1,8 +1,7 @@
 # k8s-flask
 
-## Install and run
+Build image and serve app
 ```
-docker build . -t k8s-flask
-docker run -p 5000:5000 k8s-flask
+make up
 ```
 
