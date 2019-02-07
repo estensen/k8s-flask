@@ -21,6 +21,11 @@ Query the deployed app
 $ curl -i http://localhost:31234/api/v1.0/books
 ```
 
+Scale deployment
+```
+$ kubectl scale deployments/k8s-flask-pod --replicas=4
+```
+
 Cleaning up
 ```
 $ kubectl delete services
