@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-flask-pod
+  name: k8s-flask
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: k8s-flask-pod
+      app: k8s-flask
   template:
     metadata:
       labels:
-        app: k8s-flask-pod
+        app: k8s-flask
     spec:
       containers:
         - name: k8s-flask-container
@@ -22,10 +22,10 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: k8s-flask-pod
+  name: k8s-flask
 spec:
   selector:
-    app: k8s-flask-pod
+    app: k8s-flask
   ports:
   - protocol: TCP
     port: 5000

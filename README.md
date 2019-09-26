@@ -12,8 +12,7 @@ $ curl -i http://localhost:5000/api/v1.0/books
 
 Deploy to Kubernetes
 ```
-kubectl apply -f manifest.yaml
-kubectl expose deployment/k8s-flask-pod --type=NodePort --port 5000
+$ kubectl apply -f manifest.yaml
 ```
 
 Query the deployed app
@@ -23,7 +22,7 @@ $ curl -i http://localhost:31234/api/v1.0/books
 
 Scale deployment
 ```
-$ kubectl scale deployments/k8s-flask-pod --replicas=4
+$ kubectl scale deployments/k8s-flask --replicas=4
 ```
 
 Cleaning up
