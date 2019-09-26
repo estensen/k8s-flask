@@ -5,7 +5,7 @@ help: #Self-documents targets
 
 
 build: ## Build container
-	docker build -t k8s-flask .
+	DOCKER_BUILDKIT=1 docker build -t k8s-flask .
 
 run: ## Run container
 	docker run -p 5000:5000 k8s-flask
