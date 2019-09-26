@@ -32,6 +32,11 @@ def index():
     '''
 
 
+@app.route('/healthz', methods=['GET'])
+def readiness():
+    return ""
+
+
 @app.route('/api/v1.0/books', methods=['GET'])
 def get_books():
     return jsonify(books)
