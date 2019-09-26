@@ -12,7 +12,7 @@ $ curl -i http://localhost:5000/api/v1.0/books
 
 Deploy to Kubernetes
 ```
-kubectl apply -f manifest.yml
+kubectl apply -f manifest.yaml
 kubectl expose deployment/k8s-flask-pod --type=NodePort --port 5000
 ```
 
