@@ -27,6 +27,6 @@ $ kubectl scale deployments/k8s-flask --replicas=4
 
 Cleaning up
 ```
-$ kubectl delete services
-$ kubectl delete deployment
+$ kubectl delete services k8s-flask
+$ kubectl delete deployment k8s-flask
 ```
