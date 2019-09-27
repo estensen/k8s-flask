@@ -33,7 +33,7 @@ $ curl http://localhost:5000/api/v1.0/books
 ## Deploy to Kubernetes
 Push image to Docker Hub
 ```
-$ docker push estensen/k8s-flask
+$ docker push estensen/books
 ```
 
 Create deployment
@@ -68,10 +68,10 @@ $ curl http://localhost:31234/api/v1.0/books
 
 Scale deployment:
 ```
-$ kubectl scale deployments/k8s-flask --replicas=4
+$ kubectl scale deployments/books --replicas=4
 ```
 
 Cleaning up:
 ```
-$ kubectl delete services k8s-flask && kubectl delete deployment k8s-flask
+$ kubectl delete services books && kubectl delete deployment books
 ```
