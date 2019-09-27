@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-flask
+  name: books
 spec:
   replicas: 2
   strategy:
@@ -12,15 +12,15 @@ spec:
       maxUnavailable: 0
   selector:
     matchLabels:
-      app: k8s-flask
+      app: books
   template:
     metadata:
       labels:
-        app: k8s-flask
+        app: books
     spec:
       containers:
-        - name: k8s-flask-container
-          image: docker.io/estensen/k8s-flask
+        - name: books-container
+          image: docker.io/estensen/books
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
@@ -46,10 +46,10 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: k8s-flask
+  name: books
 spec:
   selector:
-    app: k8s-flask
+    app: books
   ports:
     - protocol: TCP
       port: 5000
