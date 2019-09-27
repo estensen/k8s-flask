@@ -30,6 +30,10 @@ $ curl http://localhost:5000/api/v1.0/books
 ]
 ```
 
+### Access Jaeger UI
+Open `http://localhost:16686/`
+
+
 ## Deploy to Kubernetes
 Push image to Docker Hub
 ```

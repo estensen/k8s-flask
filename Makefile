@@ -5,9 +5,12 @@ help: #Self-documents targets
 
 
 build: ## Build container
-	DOCKER_BUILDKIT=1 docker build -t estensen/k8s-flask .
+	DOCKER_BUILDKIT=1 docker build -t estensen/books .
 
 run: ## Run container
-	docker run -p 5000:5000 estensen/k8s-flask
+	docker run -p 5000:5000 estensen/books
 
-up: build run ## Build and run container
+compose: ## Run all containers
+	docker-compose up
+
+up: build compose ## Build and run containers
