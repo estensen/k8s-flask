@@ -29,8 +29,12 @@ spec:
               path: /healthz
               port: 5000
             initialDelaySeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 5000
+            initialDelaySeconds: 15
             periodSeconds: 5
-            successThreshold: 1
 ---
 kind: Service
 apiVersion: v1
