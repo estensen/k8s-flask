@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: k8s-flask-container
-          image: estensen/k8s-flask
+          image: docker.io/estensen/k8s-flask
           imagePullPolicy: Always
           ports:
             - containerPort: 5000

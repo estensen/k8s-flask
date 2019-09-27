@@ -31,6 +31,12 @@ $ curl http://localhost:5000/api/v1.0/books
 ```
 
 ## Deploy to Kubernetes
+Push image to Docker Hub
+```
+$ docker push estensen/k8s-flask
+```
+
+Create deployment
 ```
 $ kubectl apply -f manifest.yaml
 ```
