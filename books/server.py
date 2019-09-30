@@ -1,4 +1,6 @@
 import logging
+import requests
+
 from flask import abort, Flask, jsonify
 from jaeger_client import Config
 
@@ -29,10 +31,14 @@ books = [
 @app.route('/', methods=['GET'])
 def index():
     with tracer.start_span('index') as span:
-        return '''
-        <h1>Reading Club</h1>
-        <a href='/api/v1.0/books'>Books</a>
-        '''
+        r = requests.get('http://host.docker.internal:8080/club')
+        if r.status_code == 200:
+            return '''
+            <h1>Reading Club</h1>
+            <a href='/api/v1.0/books'>Books</a>
+            '''
+        else:
+            abort(500)
 
 
 @app.route('/healthz', methods=['GET'])
