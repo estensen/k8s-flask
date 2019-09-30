@@ -5,7 +5,7 @@ help: #Self-documents targets
 
 
 build: ## Build container
-	DOCKER_BUILDKIT=1 docker build -t estensen/books .
+	DOCKER_BUILDKIT=1 docker build -t estensen/books books/.
 
 run: ## Run container
 	docker run -p 5000:5000 estensen/books
