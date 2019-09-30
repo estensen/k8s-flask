@@ -37,6 +37,7 @@ Open `http://localhost:16686/`
 ## Deploy to Kubernetes
 Push image to Docker Hub
 ```
+$ make build
 $ docker push estensen/books
 ```
 
