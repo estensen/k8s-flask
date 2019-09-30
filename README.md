@@ -12,8 +12,8 @@ $ curl http://localhost:5000/api/v1.0/books
   {
     "author": "Rene Redzepi,  David Zilber",
     "id": 0,
-    "title": "The Noma Guide to Fermentation",
-    "year_published": "2018"
+    "published": "2018",
+    "title": "The Noma Guide to Fermentation"
   },
   {
     "author": " Donald A. Norman",

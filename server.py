@@ -9,7 +9,7 @@ books = [
         'id': 0,
         'title': 'The Noma Guide to Fermentation',
         'author': 'Rene Redzepi,  David Zilber',
-        'year_published': '2018'
+        'published': '2018'
     },
     {
         'id': 1,
