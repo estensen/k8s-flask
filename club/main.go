@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/uber/jaeger-client-go"
 	"github.com/uber/jaeger-lib/metrics/prometheus"
+	//"github.com/uber/jaeger-client-go"
+	//"github.com/uber/jaeger-lib/metrics/prometheus"
 	"io"
 	"net/http"
 	"time"
@@ -14,7 +15,7 @@ import (
 )
 
 func main() {
-	closer, err := initJaeger("slowHello")
+	closer, err := initJaeger()
 	if err != nil {
 		log.Printf("Could not initialize jaeger tracer: %s", err.Error())
 	}
@@ -48,26 +49,17 @@ func main() {
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
-func initJaeger(service string) (io.Closer, error) {
-	// Example from
-	// https://github.com/jaegertracing/jaeger-client-go/blob/6c4e7ad7e7cd2960d5e6d918c4f3d56d263bf26d/config/example_test.go#L29
-	// Added LocalAgentHostPort to make it play nice with docker-compose
-	cfg := jaegercfg.Configuration{
-		Sampler: &jaegercfg.SamplerConfig{
-			Type:  jaeger.SamplerTypeConst,
-			Param: 1,
-		},
-		Reporter: &jaegercfg.ReporterConfig{
-			LogSpans:           true,
-			LocalAgentHostPort: "jaeger:6831",
-		},
+func initJaeger() (io.Closer, error) {
+	cfg, err := jaegercfg.FromEnv()
+	if err != nil {
+		return nil, err
 	}
 
 	jLogger := jaegerlog.StdLogger
 	MetricsFactory := prometheus.New()
 
 	closer, err := cfg.InitGlobalTracer(
-		service,
+		cfg.ServiceName,
 		jaegercfg.Logger(jLogger),
 		jaegercfg.Metrics(MetricsFactory),
 	)
