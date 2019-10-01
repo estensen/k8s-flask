@@ -1,5 +1,6 @@
 import logging
 import requests
+import time
 
 from flask import abort, Flask, jsonify
 from jaeger_client import Config
@@ -28,9 +29,14 @@ books = [
 ]
 
 
+def slow_func():
+    time.sleep(2)
+
+
 @app.route('/', methods=['GET'])
 def index():
     with tracer.start_span('index') as span:
+        slow_func()
         r = requests.get('http://host.docker.internal:8080/club')
         if r.status_code == 200:
             return '''
