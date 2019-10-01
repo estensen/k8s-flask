@@ -54,6 +54,7 @@ func initJaeger() (io.Closer, error) {
 	if err != nil {
 		return nil, err
 	}
+	cfg.ServiceName = "club"
 
 	jLogger := jaegerlog.StdLogger
 	MetricsFactory := prometheus.New()
