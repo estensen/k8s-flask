@@ -6,7 +6,7 @@ authors = ["Håvard Anda Estensen <haavard.ae@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-Flask = "^1.0"
+Flask = "^2.2"
 jaeger-client = "^4.1.0"
 opentracing = "^2.2.0"
 requests = "^2.22.0"
